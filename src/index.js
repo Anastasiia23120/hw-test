@@ -133,6 +133,16 @@
 
 // * 7 Файлова структура застосунку
 
+// import { startServer } from './server.js';
+
+// startServer();
+
+import { initMongoDB } from './db/initMongoDB.js';
 import { startServer } from './server.js';
 
-startServer();
+const bootstrap = async () => {
+  await initMongoDB();
+  startServer();
+};
+
+bootstrap();
